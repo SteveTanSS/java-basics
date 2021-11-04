@@ -15,7 +15,6 @@ public class Rectangle implements Shape {
 	@Override
 	public void display() {
 		System.out.println("I am a rectangle");
-		// TODO Auto-generated method stub
 
 	}
 
