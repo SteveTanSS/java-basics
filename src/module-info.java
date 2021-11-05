@@ -1,2 +1,3 @@
 module jbOne {
+	requires junit;
 }
