@@ -1,0 +1,45 @@
+1.	 Which class would you use to store your birthday in years, months, days, seconds, and nanoseconds?
+
+	LocalDateTime.
+
+2.	 Given a random date, how would you find the date of the previous Thursday?
+
+	TemporalAdjuster.previous(DayOfWeek.THURSDAY)
+
+3.	 What is the difference between a ZoneId and a ZoneOffset?
+
+	ZoneID gives an time zone identifier while ZoneOffset gives the offset from UTC time.
+
+4.	 How would you convert an Instant to a ZonedDateTime? How would you convert a ZonedDateTime to an Instant?
+    
+    Instant i = ZonedDateTime.now().toInstant();
+    ZonedDateTime z = ZonedDateTime.ofInstant(Instant.now(),ZoneId.systemDefault());
+   
+5.	 Write an example that, for a given year, reports the length of each month within that year.
+
+	public void monthToYear(int y){
+	
+	Year y = Year.of(year);
+	
+	for (Month m : Month.values()){
+		YearMonth ym = YearMonth.of(y,m);
+		System.out.println(ym.lengthOfMonth());
+	}
+	}
+6.	 Write an example that, for a given month of the current year, lists all of the Mondays in that month.
+
+	public void mondaysOfYear(Month m){
+		
+		LocalDate date = Year.now().atMonth(m).atDay(1).with(TemporalAdjusters.firstInMonth(DayOfWeek.MONDAY));
+		Month mi = date.getMonth();
+        while (mi == m) {
+            System.out.println(date.with(TemporalAdjusters.next(DayOfWeek.MONDAY)));
+            mi = date.getMonth()
+	
+	}
+7.	 Write an example that tests whether a given date occurs on Friday the 13th.
+
+	    public Boolean isFridayThe13th(TemporalAccessor date) {
+        
+        return (date.get(ChronoField.DAY_OF_WEEK) == 5)) && (date.get(ChronoField.DAY_OF_MONTH) == 13));
+    }
