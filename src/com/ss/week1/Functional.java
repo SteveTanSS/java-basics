@@ -29,8 +29,7 @@ public class Functional {
     	//create a map and map each of the items replacing x with null
         return list.stream().map(num -> (num.replaceAll("x", ""))).collect(Collectors.toList());
     }
-    
-    
+     
 /*    Given an array of ints, is it possible to choose a group of some of the ints, 
  *    such that the group sums to the given target, with this additional constraint: 
  *    if there are numbers in the array that are adjacent and the identical value, they must either all be chosen,
@@ -60,10 +59,12 @@ public class Functional {
     	if(groupSumClump(i, nums, endingPoint - sum)){
     		return true;
     	}
+    	
+    	//calls with only the current number since if current numebr is equal to target we also return true
     	if(groupSumClump(i, nums, endingPoint)){
     		return true;
     	}
-    	
+    	//return false if we reach the end and cannot reach the target number
     	return false;
     	
     }

@@ -2,6 +2,7 @@ package com.ss.week1;
 
 import java.util.function.Function;
 
+
 public class PerformOperations {
 
 	/* Params: int
